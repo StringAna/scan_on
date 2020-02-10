@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group>
+    <group android:checkableBehavior="single"  >
+        <item
+            android:id="@+id/nav_scan_on"
+            android:icon="@mipmap/scan_on"
+            android:title="Scan_ On" />
         <item
             android:id="@+id/nav_my_orders"
             android:icon="@mipmap/my_order"
@@ -25,5 +27,9 @@
             android:icon="@mipmap/my_account"
             android:title="My Account" />
     </group>
+    <item
+        android:id="@+id/nav_sign_out"
+        android:icon="@mipmap/sgn_out"
+        android:title="Sign Out" />
 
 </menu>
