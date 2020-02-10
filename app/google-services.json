@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "15597989243",
+    "firebase_url": "https://scan-on-d9a2c.firebaseio.com",
+    "project_id": "scan-on-d9a2c",
+    "storage_bucket": "scan-on-d9a2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15597989243:android:61e9f50ba634ec690021de",
+        "android_client_info": {
+          "package_name": "com.project.scan_on"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15597989243-57luuqu2ve5ppr7eev7671armu8eh5s7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7pp7qGE0z6bRHVsVJS7C7tnLYV0_Ft3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15597989243-57luuqu2ve5ppr7eev7671armu8eh5s7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
