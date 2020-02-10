@@ -8,10 +8,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.FrameLayout;
 
-///ankit says hi
-///antara says hi
-//ankit says hi again
-///antara says hi again
 public class RegisterActivity extends AppCompatActivity {
 
     private FrameLayout frameLayout;
