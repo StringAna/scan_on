@@ -15,11 +15,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.project.scan_on.CategoryAdapter;
 import com.project.scan_on.CategoryModel;
+import com.project.scan_on.HorizontalProductScrollAdapter;
+import com.project.scan_on.HorizontalProductScrollModel;
 import com.project.scan_on.R;
 import com.project.scan_on.SliderAdapter;
 import com.project.scan_on.SliderModel;
@@ -49,11 +52,15 @@ public class HomeFragment extends Fragment {
     final private long PERIOD_TIME = 3000;
     /////////// Banner Slider
     ////////// Strip Ad
-
     private ImageView stripAdImage;
     private ConstraintLayout stripAdContainer;
-
     ////////// Strip Ad
+    ///////// Horizontal Product Layout
+    private TextView horizontalLayoutTitle;
+    private Button horizontalLayoutViewAllBtn;
+    private RecyclerView horizontalRecyclerView;
+    ///////// Horizontal Product Layout
+
 
 
 
@@ -147,18 +154,37 @@ public class HomeFragment extends Fragment {
             }
         });
         //////////// Banner Slider
-
         ////////// Strip Ad
         stripAdImage = view.findViewById(R.id.strip_ad_image);
         stripAdContainer = view.findViewById(R.id.strip_ad_container);
-
-
         stripAdImage.setImageResource(R.mipmap.stripadd);
         stripAdContainer.setBackgroundColor(Color.parseColor("#000000"));
-
-
-
         ////////// Strip Ad
+        ///////// Horizontal Product Layout
+        horizontalLayoutTitle = view.findViewById(R.id.horizontal_layout_scroll_tittle);
+        horizontalLayoutViewAllBtn = view.findViewById(R.id.horizontal_scroll_view_all_btn);
+        horizontalRecyclerView = view.findViewById(R.id.horizontal_scroll_layout_recyclerview);
+
+        List<HorizontalProductScrollModel> horizontalProductScrollModelList = new ArrayList<>();
+
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.image2,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.app_icon,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.app_round_icon,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.cart_black,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.custom_error_icon,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.green_mail,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.red_mail,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.home_icon,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+
+        HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        horizontalRecyclerView.setLayoutManager(linearLayoutManager);
+
+        horizontalRecyclerView.setAdapter(horizontalProductScrollAdapter);
+        horizontalProductScrollAdapter.notifyDataSetChanged();
+        ///////// Horizontal Product Layout
+
 
 
         return view;

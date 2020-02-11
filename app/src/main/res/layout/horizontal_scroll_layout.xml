@@ -11,7 +11,7 @@
     android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/horizontal_scroll_layout_btn"
+        android:id="@+id/horizontal_scroll_view_all_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -33,9 +33,9 @@
         android:textSize="16sp"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toBottomOf="@id/horizontal_scroll_layout_btn"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_scroll_view_all_btn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/horizontal_scroll_layout_btn" />
+        app:layout_constraintTop_toTopOf="@id/horizontal_scroll_view_all_btn" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/horizontal_scroll_layout_recyclerview"
@@ -43,5 +43,5 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_layout_btn" />
+        app:layout_constraintTop_toBottomOf="@id/horizontal_scroll_view_all_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category_recyclerview">
 
-        <include layout="@layout/sliding_ad_layout" />
+        <include layout="@layout/horizontal_scroll_layout" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,6 +39,17 @@
             layout="@layout/strip_ad_layout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
             tools:layout_editor_absoluteX="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <include layout="@layout/sliding_ad_layout" />
 
     </LinearLayout>
 
