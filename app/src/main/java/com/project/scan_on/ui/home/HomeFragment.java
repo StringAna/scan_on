@@ -1,6 +1,7 @@
 package com.project.scan_on.ui.home;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -151,7 +152,8 @@ public class HomeFragment extends Fragment {
         stripAdImage = view.findViewById(R.id.strip_ad_image);
         stripAdContainer = view.findViewById(R.id.strip_ad_container);
 
-        stripAdImage.setImageResource(R.);
+        stripAdImage.setImageResource(R.mipmap.stripadd);
+        stripAdContainer.setBackgroundColor(Color.parseColor("#000000"));
 
 
         ////////// Strip Ad
