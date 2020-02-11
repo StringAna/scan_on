@@ -3,6 +3,7 @@ package com.project.scan_on.ui.home;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.project.scan_on.CategoryAdapter;
@@ -45,6 +47,12 @@ public class HomeFragment extends Fragment {
     final private long DELAY_TIME = 3000;
     final private long PERIOD_TIME = 3000;
     /////////// Banner Slider
+    ////////// Strip Ad
+
+    private ImageView stripAdImage;
+    private ConstraintLayout stripAdContainer;
+
+    ////////// Strip Ad
 
 
 
@@ -78,27 +86,30 @@ public class HomeFragment extends Fragment {
 
         bannerSliderViewPager = view.findViewById(R.id.banner_slider_view_pager);
         sliderModelList = new ArrayList<SliderModel>();
-        sliderModelList.add(new SliderModel(R.mipmap.home_icon));
-        sliderModelList.add(new SliderModel(R.mipmap.custom_error_icon));
 
-        sliderModelList.add(new SliderModel(R.mipmap.green_mail));
-        sliderModelList.add(new SliderModel(R.mipmap.red_mail));
-        sliderModelList.add(new SliderModel(R.mipmap.app_icon));
-        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher));
-        sliderModelList.add(new SliderModel(R.mipmap.cart_black));
-        sliderModelList.add(new SliderModel(R.mipmap.profile_placeholder));
-        sliderModelList.add(new SliderModel(R.mipmap.home_icon));
-        sliderModelList.add(new SliderModel(R.mipmap.custom_error_icon));
-        sliderModelList.add(new SliderModel(R.drawable.banner2));
+        sliderModelList.add(new SliderModel(R.mipmap.home_icon,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.custom_error_icon,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.green_mail,"#077AE4"));
 
-        sliderModelList.add(new SliderModel(R.mipmap.green_mail));
-        sliderModelList.add(new SliderModel(R.mipmap.red_mail));
+        sliderModelList.add(new SliderModel(R.mipmap.red_mail,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.app_icon,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.ic_launcher,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.cart_black,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.profile_placeholder,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.home_icon,"#077AE4"));
+
+        sliderModelList.add(new SliderModel(R.mipmap.custom_error_icon,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.green_mail,"#077AE4"));
+        sliderModelList.add(new SliderModel(R.mipmap.red_mail,"#077AE4"));
+
 
 
         SliderAdapter sliderAdapter = new SliderAdapter(sliderModelList);
         bannerSliderViewPager.setAdapter(sliderAdapter);
         bannerSliderViewPager.setClipToPadding(false);
         bannerSliderViewPager.setPageMargin(20);
+
+        bannerSliderViewPager.setCurrentItem(currentPage);
 
         ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
             @Override
@@ -134,9 +145,18 @@ public class HomeFragment extends Fragment {
                 return false;
             }
         });
-
-
         //////////// Banner Slider
+
+        ////////// Strip Ad
+        stripAdImage = view.findViewById(R.id.strip_ad_image);
+        stripAdContainer = view.findViewById(R.id.strip_ad_container);
+
+        stripAdImage.setImageResource(R.);
+
+
+        ////////// Strip Ad
+
+
         return view;
     }
     //////////// Banner Slider
