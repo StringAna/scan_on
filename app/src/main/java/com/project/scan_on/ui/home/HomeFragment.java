@@ -151,7 +151,6 @@ public class HomeFragment extends Fragment {
         stripAdImage = view.findViewById(R.id.strip_ad_image);
         stripAdContainer = view.findViewById(R.id.strip_ad_container);
 
-        stripAdImage.setImageResource(R.);
 
 
         ////////// Strip Ad
