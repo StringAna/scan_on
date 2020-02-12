@@ -3,6 +3,14 @@ package com.project.scan_on.ui.home;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
@@ -10,19 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import com.project.scan_on.CategoryAdapter;
 import com.project.scan_on.CategoryModel;
-import com.project.scan_on.GridProductLayoutAdapter;
+import com.project.scan_on.HomePageAdapter;
+import com.project.scan_on.HomePageModel;
 import com.project.scan_on.HorizontalProductScrollAdapter;
 import com.project.scan_on.HorizontalProductScrollModel;
 import com.project.scan_on.R;
@@ -62,6 +61,10 @@ public class HomeFragment extends Fragment {
     private Button horizontalLayoutViewAllBtn;
     private RecyclerView horizontalRecyclerView;
     ///////// Horizontal Product Layout
+
+    //////////////////////////
+
+    //////////////////////////
 
 
 
@@ -187,12 +190,35 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollAdapter.notifyDataSetChanged();
         ///////// Horizontal Product Layout
         //////// Grid Product Layout
-        TextView gridLayoutTitle = view.findViewById(R.id.grid_product_layout_title);
-        Button gridLayoutViewAllBtn = view.findViewById(R.id.grid_product_layout_viewall_btn);
-        GridView gridView = view.findViewById(R.id.grid_product_layout_gridview);
+        //TextView gridLayoutTitle = view.findViewById(R.id.grid_product_layout_title);
+        //Button gridLayoutViewAllBtn = view.findViewById(R.id.grid_product_layout_viewall_btn);
+        //GridView gridView = view.findViewById(R.id.grid_product_layout_gridview);
 
-        gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+       // gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
         //////// Grid Product Layout
+
+        //////////////////////
+        RecyclerView testing = view.findViewById(R.id.testing);
+        LinearLayoutManager testingLayoutManager = new LinearLayoutManager(getContext());
+        testingLayoutManager.setOrientation(RecyclerView.VERTICAL);
+        testing.setLayoutManager(testingLayoutManager);
+
+        List<HomePageModel> homePageModelList = new ArrayList<>();
+
+        homePageModelList.add(new HomePageModel(1,R.mipmap.stripadd,"#000000"));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.drawable.banner2,"#ffff00"));
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(1,R.mipmap.stripadd,"#ff0000"));
+
+
+        HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
+        testing.setAdapter(adapter);
+
+ 
+
+        /////////////////////
 
 
 
