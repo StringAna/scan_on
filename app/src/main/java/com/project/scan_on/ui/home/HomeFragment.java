@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.project.scan_on.CategoryAdapter;
 import com.project.scan_on.CategoryModel;
+import com.project.scan_on.GridProductLayoutAdapter;
 import com.project.scan_on.HomePageAdapter;
 import com.project.scan_on.HomePageModel;
 import com.project.scan_on.HorizontalProductScrollAdapter;
@@ -180,6 +182,7 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.green_mail,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.red_mail,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
         horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.home_icon,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
+        //horizontalProductScrollModelList.add(new HorizontalProductScrollModel(R.mipmap.cart_black,"Redmi 5A","SD 625 Processor","Rs.5999/-"));
 
         HorizontalProductScrollAdapter horizontalProductScrollAdapter = new HorizontalProductScrollAdapter(horizontalProductScrollModelList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -190,11 +193,11 @@ public class HomeFragment extends Fragment {
         horizontalProductScrollAdapter.notifyDataSetChanged();
         ///////// Horizontal Product Layout
         //////// Grid Product Layout
-        //TextView gridLayoutTitle = view.findViewById(R.id.grid_product_layout_title);
-        //Button gridLayoutViewAllBtn = view.findViewById(R.id.grid_product_layout_viewall_btn);
-        //GridView gridView = view.findViewById(R.id.grid_product_layout_gridview);
+        TextView gridLayoutTitle = view.findViewById(R.id.grid_product_layout_title);
+        Button gridLayoutViewAllBtn = view.findViewById(R.id.grid_product_layout_viewall_btn);
+        GridView gridView = view.findViewById(R.id.grid_product_layout_gridview);
 
-       // gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
+        gridView.setAdapter(new GridProductLayoutAdapter(horizontalProductScrollModelList));
         //////// Grid Product Layout
 
         //////////////////////
@@ -205,12 +208,16 @@ public class HomeFragment extends Fragment {
 
         List<HomePageModel> homePageModelList = new ArrayList<>();
 
+        homePageModelList.add(new HomePageModel(0,sliderModelList));
         homePageModelList.add(new HomePageModel(1,R.mipmap.stripadd,"#000000"));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(0,sliderModelList));
+        homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(3,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(1,R.mipmap.stripadd,"#000000"));
+        homePageModelList.add(new HomePageModel(3,"Deals of the Day",horizontalProductScrollModelList));
+        homePageModelList.add(new HomePageModel(2,"Deals of the Day",horizontalProductScrollModelList));
+        //homePageModelList.add(new HomePageModel(1,R.mipmap.stripadd,"#ff0000"));
         homePageModelList.add(new HomePageModel(1,R.drawable.banner2,"#ffff00"));
         homePageModelList.add(new HomePageModel(0,sliderModelList));
-        homePageModelList.add(new HomePageModel(1,R.mipmap.stripadd,"#ff0000"));
 
 
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
