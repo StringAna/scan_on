@@ -222,6 +222,7 @@ public class HomeFragment extends Fragment {
 
         HomePageAdapter adapter = new HomePageAdapter(homePageModelList);
         testing.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
  
 
