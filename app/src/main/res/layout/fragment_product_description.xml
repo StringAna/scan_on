@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductDescriptionFragment">
+
+    <TextView
+        android:id="@+id/tv_product_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="#000000"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sollicitudin eu nisl nec scelerisque. In lacus risus, eleifend id lacinia sed, convallis non elit. Praesent sollicitudin dolor in augue faucibus, id maximus dui laoreet. Nam vulputate, nibh id tempor tempor, lectus augue accumsan turpis, ut venenatis tellus elit quis purus. Nullam viverra massa eros, at tempus dolor scelerisque nec. Aenean eget nisl in magna commodo porta. Mauris nec enim ut turpis consectetur dictum. Pellentesque ornare dolor urna, a consectetur metus tempus hendrerit. Vestibulum tempus luctus convallis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut fringilla quam volutpat augue dapibus, at cursus arcu rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris sit amet sapien feugiat, faucibus arcu a, fermentum odio. Mauris a commodo tellus, at facilisis magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." />
+</FrameLayout>
