@@ -4,12 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:elevation="3dp"
     android:layout_height="match_parent">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/product_details_tablayout"
         android:layout_width="0dp"
         app:tabTextColor="#b3b3b3"
+        android:background="#d4d4d4"
         app:tabSelectedTextColor="@color/colorPrimary"
         app:tabIndicatorColor="@color/colorPrimary"
         android:layout_height="wrap_content"
