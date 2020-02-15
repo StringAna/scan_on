@@ -32,8 +32,14 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private AppBarConfiguration mAppBarConfiguration;
+    private static final int HOME_FRAGMENT=0;
+    private static final int CART_FRAGMENT=0;
+
+    //private AppBarConfiguration mAppBarConfiguration;
     private FrameLayout frameLayout;
+    private static int currentFragment;
+    private NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,22 +55,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        //mAppBarConfiguration = new AppBarConfiguration.Builder(
+         //       R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+         //       R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+         //       .setDrawerLayout(drawer)
+          //      .build();
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        //NavigationUI.setupWithNavController(navigationView, navController);
         frameLayout = findViewById(R.id.main_framelayout);
-        setFragment(new HomeFragment());
+        setFragment(new HomeFragment(),HOME_FRAGMENT);
     }
     @Override
     public void onBackPressed() {
@@ -79,16 +85,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        if (currentFragment==HOME_FRAGMENT) {
+            getMenuInflater().inflate(R.menu.main, menu);
+        }
         return true;
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
+    //@Override
+    //public boolean onSupportNavigateUp() {
+     //   NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+     //   return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+     //           || super.onSupportNavigateUp();
+    //}
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -99,23 +107,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //todo:Notification
             return true;
         }else if (id == R.id.main_cart_icon){
-            //todo:cart icon
+            myCart();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void myCart() {
+        invalidateOptionsMenu();
+        setFragment(new MyCartFragment(),CART_FRAGMENT);
+        navigationView.getMenu().getItem(3).setChecked(true);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem Item) {
         int id = Item.getItemId();
         if(id == R.id.nav_scan_on) {
-
+            setFragment(new HomeFragment(),HOME_FRAGMENT);
         }else if(id == R.id.nav_my_orders){
 
         }else if(id == R.id.nav_my_rewards){
 
         }else if(id == R.id.nav_my_cart){
-
+            myCart();
         }else if(id == R.id.nav_my_wishlist){
 
         }else if (id == R.id.nav_my_account){
@@ -128,7 +142,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    private void setFragment(Fragment fragment){
+    private void setFragment(Fragment fragment,int fragmentNo){
+        currentFragment=fragmentNo;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(frameLayout.getId(),fragment);
         fragmentTransaction.commit();
