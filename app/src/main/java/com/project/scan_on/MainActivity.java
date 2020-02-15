@@ -33,9 +33,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int HOME_FRAGMENT=0;
-    private static final int CART_FRAGMENT=0;
+    private static final int CART_FRAGMENT=1;
 
-    //private AppBarConfiguration mAppBarConfiguration;
+    private AppBarConfiguration mAppBarConfiguration;
     private FrameLayout frameLayout;
     private static int currentFragment;
     private NavigationView navigationView;
@@ -59,16 +59,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        //mAppBarConfiguration = new AppBarConfiguration.Builder(
-         //       R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-         //       R.id.nav_tools, R.id.nav_share, R.id.nav_send)
-         //       .setDrawerLayout(drawer)
-          //      .build();
-        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        //NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        //NavigationUI.setupWithNavController(navigationView, navController);
+       // Passing each menu ID as a set of Ids because each
+         //menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+               R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
+               R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+               .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
         frameLayout = findViewById(R.id.main_framelayout);
         setFragment(new HomeFragment(),HOME_FRAGMENT);
     }
@@ -91,12 +91,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    //@Override
-    //public boolean onSupportNavigateUp() {
-     //   NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-     //   return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-     //           || super.onSupportNavigateUp();
-    //}
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();

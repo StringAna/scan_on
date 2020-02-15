@@ -2,7 +2,7 @@ package com.project.scan_on;
 
 public class CartItemModel {
 
-    public static   final int cCART_ITEM =0;
+    public static   final int CART_ITEM =0;
     public static final int TOTAL_AMOUNT =1;
 
     private int type;
@@ -93,13 +93,13 @@ public class CartItemModel {
 
     /////////cart total
     private String totalItems;
-    private String totalItemPrice;
+   private String totalItemPrice;
     private String deliveryPrice;
     private String savedAmount;
     private String totalAmount;
 
     public CartItemModel(int type, String totalItems, String totalItemPrice, String deliveryPrice,String totalAmount, String savedAmount) {
-        this.totalAmount=totalAmount;
+        this.totalAmount = totalAmount;
         this.type = type;
         this.totalItems = totalItems;
         this.totalItemPrice = totalItemPrice;
@@ -146,7 +146,5 @@ public class CartItemModel {
     public void setSavedAmount(String savedAmount) {
         this.savedAmount = savedAmount;
     }
-    ////////cart total
-
-
+    //////cart total
 }
