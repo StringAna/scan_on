@@ -107,9 +107,9 @@ public class CartAdapter extends RecyclerView.Adapter {
                 freeCouponIcon.setVisibility(View.VISIBLE);
                 freeCoupons.setVisibility(View.VISIBLE);
                 if (freeCouponsNo==1) {
-                    freeCoupons.setText("free" + freeCouponsNo + "Coupon");
+                    freeCoupons.setText("free " + freeCouponsNo + " Coupon");
                 }else {
-                    freeCoupons.setText("free" + freeCouponsNo + "Coupons");
+                    freeCoupons.setText("free " + freeCouponsNo + " Coupons");
                 }
             }else {
                 freeCouponIcon.setVisibility(View.INVISIBLE);
@@ -120,7 +120,7 @@ public class CartAdapter extends RecyclerView.Adapter {
 
             if (offersAppliedNo > 0){
                 offersApplied.setVisibility(View.VISIBLE);
-                offersApplied.setText(offersAppliedNo +"Offers applied");
+                offersApplied.setText(offersAppliedNo +" Offers applied");
             }else {
                 offersApplied.setVisibility(View.INVISIBLE);
             }
